@@ -1,2 +1,8 @@
 # Dependency directory
 node_modules/
+
+#login file
+login.txt
+
+#log
+geckodriver.log
