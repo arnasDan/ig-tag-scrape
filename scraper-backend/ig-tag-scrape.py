@@ -15,8 +15,6 @@ parser.add_argument("-f", "--file", dest="filename", default='login.txt',
                     help="Login file name (default: login.txt)", metavar="FILE")
 parser.add_argument("-q", "--quiet", dest="quiet", action="store_true",
                     help="Don't print to console")
-parser.add_argument("-c", "--collect", dest="collect_dict", action="store_true",
-                    help="Collect tags into one large dict.")
 parser.add_argument("-p", "--pass_count", dest="passes", default=1, type=int,
                     help="Number of passes to perform (default: 1)", metavar="NO_OF_PASSES")
 
@@ -35,7 +33,7 @@ def read_login(filename: str):
 
 print('Inicialising scraper...')
 options = webdriver.FirefoxOptions()
-options.headless = args.quiet
+options.headless = True
 driver = webdriver.Firefox(options=options)
     
 loginData = read_login(args.filename)
@@ -44,7 +42,7 @@ tagDict = defaultdict(int)
 print('Scraping data...')
 for i in range(args.passes):
     print('Pass no. %d' % (i + 1))
-    scrape_once(driver, args.collect_dict, tagDict)
+    scrape_once(driver, tagDict)
 
 for tag in sorted(tagDict.items(), key=operator.itemgetter(1), reverse=True):
     print(tag[0] + ' ' + str(tag[1]))
