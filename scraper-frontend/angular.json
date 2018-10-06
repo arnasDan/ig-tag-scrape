@@ -27,7 +27,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "../igscrape/src/app/random-tag/textappear.js"
+              "src/app/random-tag/textappear.js"
 
             ]
           },
@@ -80,7 +80,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "../igscrape/src/app/random-tag/textappear.js"
+              "./src/app/random-tag/textappear.js"
             ],
             "assets": [
               "src/favicon.ico",
