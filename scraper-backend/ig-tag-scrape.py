@@ -14,7 +14,7 @@ parser = ArgumentParser()
 parser.add_argument("-f", "--file", dest="filename", default='login.txt',
                     help="Login file name (default: login.txt)", metavar="FILE")
 parser.add_argument("-q", "--quiet", dest="quiet", action="store_true",
-                    help="Don't print to console")
+                    help="Don't print to console and run headless web driver")
 parser.add_argument("-c", "--collect", dest="collect_dict", action="store_true",
                     help="Collect tags into one large dict.")
 parser.add_argument("-p", "--pass_count", dest="passes", default=1, type=int,
