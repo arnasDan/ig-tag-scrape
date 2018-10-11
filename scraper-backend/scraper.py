@@ -2,6 +2,7 @@ import time
 import random
 from bs4 import BeautifulSoup
 import requests
+from dbCalls import put_tag
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -22,7 +23,6 @@ def login(username, password, driver):
 def scrape_once(driver: webdriver, save_into_dict: bool, tagDict = []):
     tagCount = 0
     postCount = 0
-    timeDict = dict()
     driver.get('https://www.instagram.com/explore')
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'article')))   
     all_links = driver.find_elements_by_tag_name('a')
@@ -38,15 +38,12 @@ def scrape_once(driver: webdriver, save_into_dict: bool, tagDict = []):
                 timestamp = media_html.split('created_at":')[1].split(',')[0]
             except IndexError:
                 timestamp = time.time()
-            print(timestamp)
             hashtags = soup.findAll(attrs={"property" : "instapp:hashtags"})
             for tagElement in hashtags:
                 tag = tagElement.get('content')
                 if save_into_dict:
                     tagDict[tag] += 1
-                if not timeDict.__contains__(tag):
-                    timeDict[tag] = list()
-                timeDict[tag].append(time)
+                put_tag(tag, timestamp)
                 tagCount += 1               
             postCount += 1
     print('%d tags processed in %d posts' % (tagCount, postCount))
