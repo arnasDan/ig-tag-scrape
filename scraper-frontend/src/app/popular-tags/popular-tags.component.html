@@ -1,66 +1,18 @@
-<body>
-    <div class="container">
+<div class="container">
 
-      <h1>Top 10 most popular tags</h1>
+  <h1>Top 10 most popular tags</h1>
 
-      <h3>Today</h3>
-      <p>The following list consists of top 10 Instagram tags that are the most popular today.</p>
+  <h3>Today</h3>
+  <p>The following list consists of top 10 Instagram tags that are the most popular today.</p>
 
-      <div class="row">
-        <div class="col-4" ><b>Number</b></div>
-        <div class="col-4" ><b>Tag</b></div>
-        <div class="col-4" ><b>Quantity</b></div>
-      </div>
-      <div class="row">
-          <div class="col-4" >1.</div>
-          <div class="col-4" >#love</div>
-          <div class="col-4">300000</div>
-      </div>
-      <div class="row">
-          <div class="col-4" >2.</div>
-          <div class="col-4" >#followback</div>
-          <div class="col-4">294524</div>
-      </div>
-      <div class="row">
-          <div class="col-4" >3.</div>
-          <div class="col-4" >#instagramers</div>
-          <div class="col-4">287245</div>
-      </div>
-      <div class="row">
-          <div class="col-4" >4.</div>
-          <div class="col-4" >#cute</div>
-          <div class="col-4">274562</div>
-      </div>
-      <div class="row">
-          <div class="col-4" >5.</div>
-          <div class="col-4" >#tweegram</div>
-          <div class="col-4">264522</div>
-      </div>
-      <div class="row">
-          <div class="col-4" >6.</div>
-          <div class="col-4" >#photooftheday</div>
-          <div class="col-4">254365</div>
-      </div>
-      <div class="row">
-          <div class="col-4" >7.</div>
-          <div class="col-4" >#20likes</div>
-          <div class="col-4">243545</div>
-      </div>
-      <div class="row">
-          <div class="col-4" >8.</div>
-          <div class="col-4" >#amazing</div>
-          <div class="col-4">234534</div>
-      </div>
-      <div class="row">
-          <div class="col-4" >9.</div>
-          <div class="col-4" >#smile</div>
-          <div class="col-4">222743</div>
-      </div>
-      <div class="row">
-          <div class="col-4" >10.</div>
-          <div class="col-4" >#follow4follow</div>
-          <div class="col-4">213234</div>
-      </div>
-
-    </div> <!-- /container -->
-  </body>
+  <div class="row">
+    <div class="col-4" ><b>Number</b></div>
+    <div class="col-4" ><b>Tag</b></div>
+    <div class="col-4" ><b>Quantity</b></div>
+  </div>
+  <div class="row" *ngFor="let entry of mapValues(); let i = index;">
+      <div class="col-4" >{{i + 1}}</div>
+      <div class="col-4" >#{{entry[0]}}</div>
+      <div class="col-4">{{entry[1]}}</div>
+  </div>
+</div> <!-- /container -->
