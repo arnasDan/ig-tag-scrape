@@ -31,13 +31,7 @@ def scrape_once(driver: webdriver, save_into_dict: bool, tagDict = []):
         if (href.endswith('?explore=true')):
             media_html = requests.get(href).text
             soup = BeautifulSoup(media_html, 'lxml')
-            timestamp: float
-            #not actually the date we want, but close enough for a proof of concept.
-            #timestamp of first comment or systime if unavailable
-            try:
-                timestamp = media_html.split('created_at":')[1].split(',')[0]
-            except IndexError:
-                timestamp = time.time()
+            timestamp: int = time.time()
             hashtags = soup.findAll(attrs={"property" : "instapp:hashtags"})
             for tagElement in hashtags:
                 tag = tagElement.get('content')

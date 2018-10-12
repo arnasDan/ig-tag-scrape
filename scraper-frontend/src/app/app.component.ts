@@ -9,5 +9,14 @@ import { HomeComponent } from './home/home.component';
 })
 
 export class AppComponent{
+  loggedIn: boolean = false;
   title = 'igscrape';
+  
+  login() {
+    this.loggedIn = true;
+  }
+
+  logout() {
+    this.loggedIn = false;
+  }
 }

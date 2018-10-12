@@ -10,15 +10,21 @@
         <li class="nav-item active">
           <a class="nav-link" href="#" routerLink = "/home">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="loggedIn">
           <a class="nav-link" href="#" routerLink = "/popular-tags">Popular tags </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="loggedIn">
           <a class="nav-link" href="#" routerLink = "/statistics">Statistics </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="loggedIn">
           <a class="nav-link" href="#" routerLink = "/random-tag">Random tag </a>
         </li>
+        <li class="nav-item" *ngIf="!loggedIn">
+          <a class="nav-link" href="#" (click)=login() routerLink = "/home">Log in</a>
+        </li>
+        <li class="nav-item" *ngIf="loggedIn">
+          <a class="nav-link" href="#" (click)=logout() routerLink = "/home">Log out</a>
+        </li>       
       </ul>
     </div>
   </nav>
