@@ -27,7 +27,7 @@ export class PopularTagsComponent implements OnInit {
         let yesterday = new Date();
         yesterday.setDate(yesterday.getDate() - 1);
         let timestamp = element.timestamp.length == 13 ? Number(element.timestamp) : Number(element.timestamp) * 1000;
-        if (yesterday.getTime() < Number(element.timestamp) * 1000 || true) //ignore this for demonstration purposes.
+        if (yesterday.getTime() < Number(element.timestamp) * 1000)
         {
           if (this.popularTags.has(element.tag))
             this.popularTags.set(element.tag, this.popularTags.get(element.tag) + 1);
